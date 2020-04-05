@@ -1,5 +1,14 @@
 Vamos a comenzar con la implementación de las rutas necesarias en nuestro backend.
 
+Configuramos nuestro archivo .env
+
+```
+MONGODB_URI=mongodb://localhost:27017/backend-server
+PUBLIC_DOMAIN=http://localhost:3000
+SECRET_SESSION=ironhack
+PORT=4000
+```
+
 Agregamos el modelo Users en el archivo `/models/users.js`
 
 ```js
