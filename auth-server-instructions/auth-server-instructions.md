@@ -172,6 +172,8 @@ module.exports = router;
 
 ####   `/signup`,  `/private` ,`/logout` ,`/login` y de nuevo `/private`.
 
+Si en Postman vamos a `import` podemos abrir el archivo auth-server.postman_collection.json para importar la collection auth-server donde tenemos ya todas las rutas configuradas y listas para probar.
+
 Postman guardará las cookies en los Headers para los próximos requests.
 
 Ejemplo: luego de `/signup` una cookie es devuelta en la respuesta y Postman seteará esta cookie en todos los requests en la collection, por lo que la próxima vez que enviemos un request, la cookie con session.id es enviada automáticamente al servidor.
