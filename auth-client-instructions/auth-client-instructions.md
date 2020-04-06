@@ -11,7 +11,7 @@ npm i
 #### Actualizamos `App.js`
 
 ```jsx
-//	src/App.js
+// src/App.js
 
 import React, { Component } from "react";
 import "./App.css";
@@ -56,7 +56,7 @@ export default App;
 #### Creamos `lib/AuthProvider.js`
 
 ```jsx
-//	lib/AuthProvider.js
+// lib/AuthProvider.js
 
 import React from "react";
 import auth from "./auth-service";	// Importamos funciones para llamadas axios a la API
@@ -69,7 +69,7 @@ const withAuth = (WrappedComponent) => {};
 class AuthProvider extends React.Component {
   state = { isLoggedin: false, user: null, isLoading: true };
 
-	componentDidMount() {
+componentDidMount() {
     auth.me()
     .then((user) => this.setState({ isLoggedin: true, user: user, isLoading: false }))
     .catch((err) => this.setState({ isLoggedin: false, user: null, isLoading: false }));
@@ -103,7 +103,7 @@ export default AuthProvider;		//	<--	RECUERDA EXPORTAR  ! ! !
 #### Finalicemos los métodos `signup()` , `login()` and `logout()` en `AuthProvider.js`
 
 ```jsx
-//	lib/AuthProvider.js
+// lib/AuthProvider.js
 
 // Provider
 class AuthProvider extends React.Component {
@@ -147,7 +147,7 @@ class AuthProvider extends React.Component {
 ### Importamos `AuthProvider` en `App.js` y envolvemos todo el component (a fin de que comparta el contexto)
 
 ```jsx
-//	src/App.js
+// src/App.js
 
 ...
 
@@ -185,7 +185,7 @@ class App extends Component {
 #### Lee primero  https://es.reactjs.org/docs/context.html#contextconsumer
 
 ```jsx
-//	lib/AuthProvider.js
+// lib/AuthProvider.js
 
 const withAuth = (WrappedComponent) => {
 
@@ -220,7 +220,7 @@ const withAuth = (WrappedComponent) => {
 `pages/Signup.js`
 
 ```jsx
-//	pages/Signup.js
+// pages/Signup.js
 
 ...
 
@@ -250,7 +250,7 @@ export default withAuth(Signup);			            //	<-- UPDATE HERE
 `pages/Login.js`
 
 ```jsx
-//	pages/Login.js
+// pages/Login.js
 
 ...
 
@@ -280,7 +280,7 @@ export default withAuth(Login);				           //	<-- UPDATE HERE
 `pages/Prvate.js`
 
 ```jsx
-//	pages/Private.js
+// pages/Private.js
 
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";			//	<-- UPDATE HERE
@@ -302,7 +302,7 @@ export default withAuth(Private);				        //	<-- UPDATE HERE
 #### Actualizamos `components/Navbar.js`
 
 ```jsx
-//	components/Navbar.js
+// components/Navbar.js
 
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
@@ -355,7 +355,7 @@ export default withAuth(Navbar);				        //	<-- UPDATE HERE
 ### Creamos `components/AnonRoute.js`
 
 ```jsx
-//	components/AnonRoute.js
+// components/AnonRoute.js
 
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
@@ -376,7 +376,7 @@ export default withAuth(AnonRoute);
 #### Actualizamos `App.js`
 
 ```jsx
-//	src/App.js
+// src/App.js
 
 ...
 		...
@@ -400,7 +400,7 @@ import AnonRoute from "./components/AnonRoute";
 ### Creamos `components/PrivateRoute.js`
 
 ```jsx
-//	components/PrivateRoute.js
+// components/PrivateRoute.js
 
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
@@ -422,7 +422,7 @@ export default withAuth(PrivateRoute);
 #### Actualizamos `App.js`
 
 ```jsx
-//	src/App.js
+// src/App.js
 
 ...
 		...
